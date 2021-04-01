@@ -1,0 +1,9 @@
+```
+ssh -i my-key-pair.pem <user>@remote-server-ip
+sudo apt-get install docker.io
+sudo apt-get install docker-compose
+```
+
+**Assumptions**
+- The Username is provided
+- The user has sudo privileges
