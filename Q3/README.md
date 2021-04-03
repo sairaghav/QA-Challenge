@@ -120,7 +120,7 @@ spec:
     io.kompose.service: api
 ```
 
-- The `type` is configured as `NodePort` to allow internal access for debugging. In case, this is to be exposed to the internet, configure `type` as `LoadBalancer`
+- The `type` is configured as `NodePort` to allow access for debugging. In case, this is to be exposed to the internet, configure `type` as `LoadBalancer`
 - `nodePort` can optionally be specified explicitly to allow access to that specific port.
 
 # Verifying configuration
@@ -133,6 +133,13 @@ spec:
 
 
 - Verifying access
-*Frontend*
-- *API*
+
+**Frontend**
+
+![image](https://user-images.githubusercontent.com/4383992/113478806-7dfc8c00-948b-11eb-9275-e7f775ec6625.png)
+
+**API**
+
+![image](https://user-images.githubusercontent.com/4383992/113478797-6c1ae900-948b-11eb-8c6f-34bbc8bec3e1.png)
+
 
