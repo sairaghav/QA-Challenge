@@ -16,7 +16,7 @@ docker push sairaghav/qa-challenge-backend
 - Use `kompose convert` command from the folder where docker-compose.yml file is located to create the deployment and service configuration files
 - Modify the spec.container.build parameter to spec.container.image parameter with the images pushed in the previous step for both frontend and api
 
-*frontend-deployment.yaml
+*frontend-deployment.yaml*
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -43,7 +43,7 @@ spec:
 status: {}
 ```
 
-*api-deployment.yaml
+*api-deployment.yaml*
 ```
 apiVersion: apps/v1
 kind: Deployment
