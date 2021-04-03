@@ -79,3 +79,4 @@ spec:
             claimName: api-claim0
 status: {}
 ```
+- The value of replicas and the template can be adjusted as required.
