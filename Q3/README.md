@@ -2,6 +2,15 @@
 - Install minikube, kubeadm, kubectl using apt command
 - Start minikube
  `minikube start`
+- Clone the repo
+- Deploy using command: `kubectl apply -f api-claim0-persistentvolumeclaim.yaml,api-deployment.yaml,api-service.yaml,frontend-deployment.yaml,frontend-service.yaml,ingress.yaml`
+- Modify `/etc/hosts` file to configure `streaming.quickalgorithm.com` point to the node IP obtained using `kubectl describe pod frontend`
+
+```
+<nodeip> streaming.quickalgorithm.com
+```
+
+## Steps followed during exercise:
 - Clone the repo from https://github.com/dmontag23/qa-streaming-pipeline-challenge
 - Install kompose - https://github.com/kubernetes/kompose/blob/master/docs/installation.md#github-release
 - Build the images for frontend and backend using command from Dockerfile in the respective folders 
@@ -14,16 +23,9 @@ docker build -t sairaghav/qa-challenge-backend .
 docker push sairaghav/qa-challenge-frontend
 docker push sairaghav/qa-challenge-backend
 ```
-- Clone the repo
-- Deploy using command: `kubectl apply -f api-claim0-persistentvolumeclaim.yaml,api-deployment.yaml,api-service.yaml,frontend-deployment.yaml,frontend-service.yaml,ingress.yaml`
-- Modify `/etc/hosts` file to configure `streaming.quickalgorithm.com` point to the node IP obtained using `kubectl describe pod frontend`
-
-```
-<nodeip> streaming.quickalgorithm.com
-```
 
 
-## Configuring deployment and services
+### Configuring deployment and services
 - Use `kompose convert` command from the folder where docker-compose.yml file is located to create the deployment and service configuration files
 - Modify the spec.container.build parameter to spec.container.image parameter with the images pushed in the previous step for both frontend and api
 
@@ -132,7 +134,7 @@ spec:
 - `nodePort` can optionally be specified explicitly to allow access only on that specific port, but is not recommended.
 - Deploy the cluster using command: `kubectl apply -f api-claim0-persistentvolumeclaim.yaml,api-deployment.yaml,api-service.yaml,frontend-deployment.yaml,frontend-service.yaml`
 
-## Verifying configuration
+### Verifying configuration
 - Status of deployment
 ![image](https://user-images.githubusercontent.com/4383992/113478603-1f82de00-948a-11eb-8e58-f1a4238f0d37.png)
 
@@ -154,7 +156,7 @@ spec:
 
 ![image](https://user-images.githubusercontent.com/4383992/113478797-6c1ae900-948b-11eb-8c6f-34bbc8bec3e1.png)
 
-## Configure access with URL
+### Configure access with URL
 - Enable ingress add-on from minikube with command: `minikube addons enable ingress`
 - Configure `ingress.yaml` to define host `streaming.quickalgorithm.com` and paths for access api and the frontend
 ```
@@ -203,4 +205,3 @@ spec:
 ## Assumptions
 - The images for frontend and api are already accessible on docker repository
 - The DNS CNAME is configured already with the cloud provider
-
