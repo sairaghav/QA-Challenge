@@ -181,3 +181,13 @@ spec:
 - Configure `/etc/hosts` file to resolve to NodeIP when `streaming.quickalgorithm.com` is queried. Ideally, this is configured in Route53 or Google Domain when using cloud providers.
 ![image](https://user-images.githubusercontent.com/4383992/113479089-2fe88800-948d-11eb-8a13-e49a8adf901d.png)
 
+- Verify access using the URL
+
+**API**
+![image](https://user-images.githubusercontent.com/4383992/113479300-886c5500-948e-11eb-8649-652616a3d0dd.png)
+
+**Frontend**
+![image](https://user-images.githubusercontent.com/4383992/113479308-97eb9e00-948e-11eb-8a78-234e2f410ccf.png)
+
+- The frontend throws error due to invalid host header. This could be because the application could be bound to be accessed from local IP or internal name. It could be resolved by re-configuring the application to listen on 0.0.0.0
+
