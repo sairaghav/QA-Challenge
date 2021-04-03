@@ -128,7 +128,7 @@ spec:
 ![image](https://user-images.githubusercontent.com/4383992/113478603-1f82de00-948a-11eb-8e58-f1a4238f0d37.png)
 
 - Service Information
-![image](https://user-images.githubusercontent.com/4383992/113478684-a33cca80-948a-11eb-8969-d1de271edf26.png)
+- ![image](https://user-images.githubusercontent.com/4383992/113478684-a33cca80-948a-11eb-8969-d1de271edf26.png)
 
 
 - Verifying access
