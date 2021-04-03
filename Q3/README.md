@@ -134,7 +134,5 @@ spec:
 
 - Verifying access
 *Frontend*
-
-
-*API*
+- *API*
 
