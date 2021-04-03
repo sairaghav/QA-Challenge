@@ -1,3 +1,4 @@
+# Getting Started
 - Install minikube, kubeadm, kubectl using apt command
 - Start minikube
  `minikube start`
@@ -13,6 +14,8 @@ docker build -t sairaghav/qa-challenge-backend .
 docker push sairaghav/qa-challenge-frontend
 docker push sairaghav/qa-challenge-backend
 ```
+
+# Configuring deployment and services
 - Use `kompose convert` command from the folder where docker-compose.yml file is located to create the deployment and service configuration files
 - Modify the spec.container.build parameter to spec.container.image parameter with the images pushed in the previous step for both frontend and api
 
@@ -80,3 +83,57 @@ spec:
 status: {}
 ```
 - The value of replicas and the template can be adjusted as required.
+
+- Configure the services for frontend and the api as follows:
+*frontend-service.yaml*
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: frontend
+  name: frontend
+spec:
+  type: NodePort
+  ports:
+    - name: frontend
+      port: 3000
+      targetPort: 3000
+  selector:
+    io.kompose.service: frontend
+```
+*api-service.yaml*
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: api
+  name: api
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 5000
+      targetPort: 5000
+  selector:
+    io.kompose.service: api
+```
+
+- The `type` is configured as `NodePort` to allow internal access for debugging. In case, this is to be exposed to the internet, configure `type` as `LoadBalancer`
+- `nodePort` can optionally be specified explicitly to allow access to that specific port.
+
+# Verifying configuration
+- Status of deployment
+![image](https://user-images.githubusercontent.com/4383992/113478603-1f82de00-948a-11eb-8e58-f1a4238f0d37.png)
+
+- Service Information
+![image](https://user-images.githubusercontent.com/4383992/113478684-a33cca80-948a-11eb-8969-d1de271edf26.png)
+
+
+- Verifying access
+*Frontend*
+
+
+*API*
+
