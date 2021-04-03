@@ -84,6 +84,7 @@ spec:
 - The value of replicas and the template can be adjusted as required.
 
 - Configure the services for frontend and the api as follows:
+
 *frontend-service.yaml*
 ```
 apiVersion: v1
