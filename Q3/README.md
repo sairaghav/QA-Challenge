@@ -121,6 +121,7 @@ spec:
 
 - The `type` is configured as `NodePort` to allow access for debugging. In case, this is to be exposed to the internet, configure `type` as `LoadBalancer`
 - `nodePort` can optionally be specified explicitly to allow access to that specific port.
+- Deploy the cluster using command: `kubectl apply -f api-claim0-persistentvolumeclaim.yaml,api-deployment.yaml,api-service.yaml,frontend-deployment.yaml,frontend-service.yaml`
 
 # Verifying configuration
 - Status of deployment
@@ -141,4 +142,39 @@ spec:
 
 ![image](https://user-images.githubusercontent.com/4383992/113478797-6c1ae900-948b-11eb-8c6f-34bbc8bec3e1.png)
 
+# Configure access with URL
+- Enable ingress add-on from minikube with command: `minikube addons enable ingress`
+- Configure `ingress.yaml` to define host `streaming.quickalgorithm.com` and paths for access api and the frontend
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: streaming.quickalgorithm.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /api
+            backend:
+              service:
+                name: api
+                port:
+                  number: 5000
+
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 3000
+```
+- This will load the frontend when calling `streaming.quickalgorithm.com` and to the api when calling `streaming.quickalgorithm.com/api`
+- Apply the ingress rules with command `kubectl apply -f ingress.yaml`
+- Configure `/etc/hosts` file to resolve to NodeIP when `streaming.quickalgorithm.com` is queried. Ideally, this is configured in Route53 or Google Domain when using cloud providers.
+![image](https://user-images.githubusercontent.com/4383992/113479089-2fe88800-948d-11eb-8a13-e49a8adf901d.png)
 
