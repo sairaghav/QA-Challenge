@@ -133,6 +133,10 @@ spec:
 
 
 - Verifying access
+- Get Node IP for the pods
+
+![image](https://user-images.githubusercontent.com/4383992/113479207-fe23f100-948d-11eb-8582-a8842e381028.png)
+
 
 **Frontend**
 
