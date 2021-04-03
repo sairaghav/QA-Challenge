@@ -132,8 +132,7 @@ spec:
 ![image](https://user-images.githubusercontent.com/4383992/113478684-a33cca80-948a-11eb-8969-d1de271edf26.png)
 
 
-- Verifying access
-- Get Node IP for the pods
+- Verifying access by accessing with Node IP and the ports for each service
 
 ![image](https://user-images.githubusercontent.com/4383992/113479207-fe23f100-948d-11eb-8582-a8842e381028.png)
 
