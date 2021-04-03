@@ -192,3 +192,7 @@ spec:
 
 - The frontend throws error due to invalid host header. This, probably could be because the application could be bound to be accessed from local IP or internal name. Needs further troubleshooting.
 
+# Assumptions
+- The images for frontend and api are already accessible on docker repository
+- The DNS CNAME is configured already with the cloud provider
+
