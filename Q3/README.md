@@ -189,5 +189,5 @@ spec:
 **Frontend**
 ![image](https://user-images.githubusercontent.com/4383992/113479308-97eb9e00-948e-11eb-8a78-234e2f410ccf.png)
 
-- The frontend throws error due to invalid host header. This could be because the application could be bound to be accessed from local IP or internal name. It could be resolved by re-configuring the application to listen on 0.0.0.0
+- The frontend throws error due to invalid host header. This, probably could be because the application could be bound to be accessed from local IP or internal name. 
 
