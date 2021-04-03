@@ -121,7 +121,7 @@ spec:
 ```
 
 - The `type` is configured as `NodePort` to allow access for debugging. In case, this is to be exposed to the internet, configure `type` as `LoadBalancer`
-- `nodePort` can optionally be specified explicitly to allow access only that specific port, but is not recommended.
+- `nodePort` can optionally be specified explicitly to allow access only on that specific port, but is not recommended.
 - Deploy the cluster using command: `kubectl apply -f api-claim0-persistentvolumeclaim.yaml,api-deployment.yaml,api-service.yaml,frontend-deployment.yaml,frontend-service.yaml`
 
 # Verifying configuration
