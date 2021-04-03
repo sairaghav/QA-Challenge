@@ -16,7 +16,7 @@ The following sections detail the steps followed during the exercise:
 **Steps followed during exercise:**
 - Clone the repo from https://github.com/dmontag23/qa-streaming-pipeline-challenge
 - Install kompose - https://github.com/kubernetes/kompose/blob/master/docs/installation.md#github-release
-- Build the images for frontend and backend using command from Dockerfile in the respective folders 
+- Build the images for frontend and backend from Dockerfile in the respective folders using command:
 ```
 docker build -t sairaghav/qa-challenge-frontend .
 docker build -t sairaghav/qa-challenge-backend .
@@ -135,7 +135,7 @@ spec:
 
 - The `type` is configured as `NodePort` to allow access for debugging. In case, this is to be exposed to the internet, configure `type` as `LoadBalancer`
 - `nodePort` can optionally be specified explicitly to allow access only on that specific port, but is not recommended.
-- Deploy the cluster using command: `kubectl apply -f api-claim0-persistentvolumeclaim.yaml,api-deployment.yaml,api-service.yaml,frontend-deployment.yaml,frontend-service.yaml`
+- Deploy using command: `kubectl apply -f api-claim0-persistentvolumeclaim.yaml,api-deployment.yaml,api-service.yaml,frontend-deployment.yaml,frontend-service.yaml`
 
 **Verifying configuration**
 - Status of deployment
