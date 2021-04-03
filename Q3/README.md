@@ -9,6 +9,9 @@
 ```
 <nodeip> streaming.quickalgorithm.com
 ```
+- Access frontend using `streaming.quickalgorithm.com`. Access API using `streaming.quickalgorithm.com/api`
+
+The following sections details steps followed during the exercise:
 
 ## Steps followed during exercise:
 - Clone the repo from https://github.com/dmontag23/qa-streaming-pipeline-challenge
