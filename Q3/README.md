@@ -209,4 +209,4 @@ spec:
 
 ## Assumptions
 - The images for frontend and api are already accessible on docker repository
-- The DNS CNAME is configured already with the cloud provider
+- The DNS mapping is configured already with the cloud provider
