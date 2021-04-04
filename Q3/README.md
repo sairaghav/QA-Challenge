@@ -207,6 +207,15 @@ spec:
 
 - The frontend throws error due to invalid host header. This, probably could be because the application could be bound to be accessed from local IP or internal name. Needs further troubleshooting.
 
+- On creating a .env file with entry `DANGEROUSLY_DISABLE_HOST_CHECK=true` and configuring the Dockerfile for frontend to `COPY .env /usr/src/app`, it is possible to work around this error. However, this is not recommended as this is insecure. 
+
+![image](https://user-images.githubusercontent.com/4383992/113513262-259bbc00-9569-11eb-8296-d88cc4606abc.png)
+
+- Alternatively the .env file can be configured with `HOST=streaming.quickalgorithm.com`, but does not work. Needs further troubleshooting. 
+
+![image](https://user-images.githubusercontent.com/4383992/113513772-83c99e80-956b-11eb-9ff6-66ec0ef0863e.png)
+
+
 ## Assumptions
 - The images for frontend and api are already accessible on docker repository
 - The DNS mapping is configured already with the cloud provider
