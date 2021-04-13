@@ -8,19 +8,10 @@ spec:
   rules:
     - host: streaming.quickalgorithm.com
       http:
-        paths:
-          - pathType: Prefix
-            path: /api
-            backend:
-              service:
-                name: api
-                port:
-                  number: 5000
-
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
-                name: frontend
-                port:
-                  number: 3000
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: frontend
+              port:
+                number: 3000
